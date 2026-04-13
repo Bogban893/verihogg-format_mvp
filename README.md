@@ -54,7 +54,6 @@ verihogg-format --check src/**/*.sv
 от каждого исходного файла.
 
 ```toml
-[format]
 indent_width    = 2        # пробелов на уровень отступа
 column_limit    = 100      # мягкий предел длины строки
 use_tabs        = false
@@ -62,10 +61,6 @@ use_tabs        = false
 port_alignment  = "align"  # "align" | "flush-left"
 endlabel_style  = "always" # "always" | "never" | "preserve"
 begin_end_style = "always" # "always" | "preserve"
-
-[files]
-include = ["**/*.v", "**/*.sv"]
-exclude = ["build/**", "vendor/**"]
 ```
 
 Приоритет:
