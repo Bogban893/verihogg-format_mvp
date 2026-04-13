@@ -1,11 +1,11 @@
 # verihogg-format_mvp
 
-> Бескомпромиссный форматтер кода для Verilog/SystemVerilog.
+> Форматтер кода для SystemVerilog.
 
-**verihogg-format** форматирует Verilog и SystemVerilog файлы.
+**verihogg-format** форматирует SystemVerilog стандарта IEEE 1800-2017.
 
 ```
-verihogg-format src/**/*.v
+verihogg-format src/**/*.sv
 ```
 
 ---
@@ -30,17 +30,11 @@ cmake --build build
 
 ```bash
 # форматировать файлы на месте
-verihogg-format mymodule.v
-verihogg-format src/**/*.v
+verihogg-format mymodule.sv
+verihogg-format src/**/*.sv
 
 # проверить без изменений — выйти с кодом 1, если хоть один файл изменился бы (для CI)
-verihogg-format --check src/**/*.v
-
-# показать unified diff вместо перезаписи
-verihogg-format --diff mymodule.v
-
-# читать из stdin, писать в stdout
-cat mymodule.v | verihogg-format --stdin
+verihogg-format --check src/**/*.sv
 ```
 
 ### Коды выхода
@@ -95,7 +89,7 @@ CLI флаги  >  .verihogg.toml  >  встроенные дефолты
 
 ## Отключение форматирования
 
-Для ручного выравнивания, которое нужно сохранить — таблицы истинности, mux-деревья —
+Для ручного выравнивания, которое нужно сохранить
 оберните регион в комментарии:
 
 ```verilog
@@ -161,21 +155,6 @@ module scr1_pipe_ialu #(
     end
   end
 ```
-
----
-
-## Pre-commit
-
-```yaml
-repos:
-  - repo: https://github.com/verihogg/verihogg-format
-    rev: main
-    hooks:
-      - id: verihogg-format
-        args: [--check]
-```
-
----
 
 ## Лицензия
 
